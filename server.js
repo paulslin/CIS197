@@ -15,14 +15,12 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/hw5-new')
 app.engine('html', require('ejs').__express)
 app.set('view engine', 'html')
 
-app.use('/static', express.static(path.join(__dirname, 'static')))
+//app.use('/static', express.static(path.join(__dirname, 'static')))
 
 app.use(bodyParser.urlencoded({ extended: false }))
 // accept post data from AJAX requests
 app.use(bodyParser.json())
 
-// TODO: configure body parser middleware to also accept json. just do
-// app.use(bodyParser.json())
 
 app.use(
   cookieSession({
@@ -55,24 +53,9 @@ app.post('/', function(req, res, next) {
   })
 })
 
+// mount account and api routes
 app.use('/account', accountRouter)
-
-// TODO: Mount api routes at '/api' prefix
 app.use('/api', apiRouter)
-
-
-/**
-// don't put any routes below here!
-app.use(function(err, _, res) {
-  return res.send('ERROR :  ' + err.message)
-})
-app.use(function(err, _, res, next) {
-  // res.send('ERROR :  ' + err.message)
-  next(new Error('ERROR :  ' + err.message))
-})
-**/
-// don't put any routes below here!
-
 
 // don't put any routes below here!
 app.use(function(err, _, res, next) {

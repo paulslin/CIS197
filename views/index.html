@@ -1,57 +1,33 @@
 <html>
   <head>
-    <title>cis197 piazza lite</title>
+    <title>Dinder</title>
     <script src="/static/scripts/lib/jquery.min.js"></script>
     <script src="/static/scripts/main.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/styles/styles.css"/>
   </head>
   <body>
     <div class="nav">
-      <h2>Piazza Lite</h2>
+      <h1 style="font-size: 70; margin-top: 25px; font-family: 
+      Chalet New York 1970; font-style: italic">dinder</h1>
       <% if (user) { %>
-      <p>Hi <%= user %> | 
-      <a href="/account/logout">Log out</a>
-      </p>
-      <% } %>
-    </div>
-    <div class="main-body">
-      <div class="left-col">
-      <% if (user) { %>
-      <a href="#" class="btn" id="new-question">Add new Question + </a>
-      <div class="modal" style="display:none">
-        <div class="question-area">
-          <textarea type="text" id="question-text">
-          Add Question: 
-          </textarea>
-          <a class="btn" type="submit" id="submit-question">Submit Question</a>
-          <a class="btn" id="close">Close</a>
-        </div>
-      </div>
+        <H2>Welcome, <%= user %> </H2> <br />
+        <a class="btn" href="/account/profile" style="width: 30%">Profile</a>
+        <a class="btn" href="/account/signup" style="width: 30%">Match</a>
+        <a class="btn" href="/account/logout" style="width: 30%">Logout</a>
       <% } else { %>
-      <a class="btn" href="/account/login">Log in to submit a question</a>
-      <% } %>
-      <ul id="questions">
-        <% if (typeof questions == 'object') { %>
-          <% questions.forEach(function(q) { %>
-          <li data-qid=<%= q.id %>><%= q.questionText %></li>
-          <% }) 
-        } %>
-      </ul>
-      </div>
-      <div class="right-col">
-        <div id="show-question" style="display:none">
-            <div id="question-info">
-              <p id="question"></p>
-              Author: <p id="author"></p>
-              Answer: <p id="answer-text"></p>
-            </div>
-            <br/><br/>
-            <% if (user) { %>
-            <textarea id="answer"></textarea>
-            <a class="btn" type="submit" id="submitAnswer">Submit Answer</a>
-            <% } %>
+        <div class="main-body">
+          <h3>What is Dinder?</h3>
+          <p> With 30 billion matches to date, Dinder® is the world’s most popular app for meeting new fellow chefs. Think of us as your most dependable culinary wingmate—wherever you go, we’ll be there. If you’re here to meet new chefs, discover new recipies, create culinary masterpieces, or just eat other people's food, you’ve come to the right place. We’re called “the world’s tasties app” for a reason: we spark more than 26 million matches per day. How many matching apps do that?</p>
+          <p> Match. Chat. Dook. Dinder is easy and fun—use the Swipe Right™ feature to Like someone, use the Swipe Left™ feature to pass. If someone likes you back, It’s a Match! We invented the double opt-in so that two people will only match when there’s a mutual interest and skill. No stress. No rejection. Just tap through the profiles you’re interested in, chat online with your matches, then step away from your phone, meet up in the real world and spark something new.</p>
+          <p> Welcome to Dinder—the largest, hottest community of singles chefs in the world. Don’t be shy, come on over.</p>
+          <h3>User Authentication</h3>
+          <p class="left-col" style="width: 45%">No Account Yet? Sign-up Now!</p>
+          <p class="right-col" style="width: 45%">Already have an Account? Login Now!</p>
+          <a class="btn" href="/account/signup" style="width: 45%; border-radius: 8px; border: 1.5px solid #000000 ">Signup</a>
+          <a class="btn" href="/account/login" style="width: 45%; border-radius: 8px; border: 1.5px solid #000000 ">Log in</a>
         </div>
-      </div>
+      <% }%>
+    </div>
     </div>
   </body>
 </html>
