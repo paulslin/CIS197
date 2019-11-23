@@ -10,20 +10,34 @@ router.get('/signup', function(req, res) {
 router.get('/login', function(_, res) {
   res.render('login')
 })
-router.get('/profile', function(req, res) {
-  res.render('profile.html', { user: req.session.user, account: req.session.account})
+
+router.get('/profile', async (req, res) => {
+  // User.findById(req.session.userId)
+  // .then(user => {
+  //   res.render('profile.html', {account: user})
+  // })
+  const user = await User.findById(req.session.userId)
+  res.render('profile.html', {user: req.session.user, account: user})
 })
-router.get('/profile_cuisines', function(req, res) {
-  res.render('profile_cuisines.html', {account: req.session.account})
+
+router.get('/profile_cuisines', async (req, res) => {
+  const user = await User.findById(req.session.userId)
+  res.render('profile_cuisines.html', {account: user})
 })
-router.get('/profile_skills', function(req, res) {
-  res.render('profile_skills.html', {account: req.session.account})
+
+router.get('/profile_skills', async (req, res) => {
+  const user = await User.findById(req.session.userId)
+  res.render('profile_skills.html', {account: user})
 })
-router.get('/profile_appliances', function(req, res) {
-  res.render('profile_appliances.html', {account: req.session.account})
+
+router.get('/profile_appliances', async (req, res) => {
+  const user = await User.findById(req.session.userId)
+  res.render('profile_appliances.html', {account: user})
 })
-router.get('/profile_ingrediants', function(req, res) {
-  res.render('profile_ingrediants.html', {account: req.session.account})
+
+router.get('/profile_ingrediants', async (req, res) => {
+  const user = await User.findById(req.session.userId)
+  res.render('profile_ingrediants.html', {account: user})
 })
 
 // sign-up page:
@@ -59,8 +73,7 @@ router.post('/login', function(req, res, next) {
   ) {
     // Success Case: if user passes, then allow and redirect to profile
     if (!err && result != null) {
-      req.session.user = username
-      req.session.account = result
+      req.session.userId = result.id
       res.redirect('/account/profile')
     } else {
       // Unsuccessful Case: user fails, say authenticaion fails
@@ -74,15 +87,13 @@ router.post('/profile', function(req, res, next) {
   var username = req.session.account.username
   var password = req.session.account.password
   // find user among users list
-  User.findOne({ username: username, password: password }, function(
-    err,
-    result
-  ) {
+  User.findOne({ username: username, password: password }, function(err, result) { 
     if (!err && result != null) {
-      console.log(result)
+    // Success Case: redirect to profile page
       res.redirect('/account/profile')
     } else { 
-      next(new Error('Cuisines Update Fail'))
+    // Unsuccessful Case: user profile fails
+      next(new Error('Profile Access unavailable'))
     }
   })
 })
@@ -96,8 +107,6 @@ router.post('/profile_cuisines', function(req, res, next) {
     {cuisines: req.body.cuisines},
     function(err, result) {
       if (!err && result != null) {
-        // update for current session
-        req.session.account.cuisines = req.body.cuisines
         res.redirect('/account/profile')
       } else { 
         next(new Error('Cuisines Update Fail'))
@@ -114,8 +123,6 @@ router.post('/profile_skills', function(req, res, next) {
     {skills: req.body.skills},
     function(err, result) {
       if (!err && result != null) {
-        // update for current session
-        req.session.account.skills = req.body.skills
         res.redirect('/account/profile')
       } else { 
         next(new Error('Skills Update Fail'))
@@ -132,9 +139,6 @@ router.post('/profile_appliances', function(req, res, next) {
     {appliances: req.body.appliances},
     function(err, result) {
       if (!err && result != null) {
-        console.log(req.body.appliances)
-        // update for current session
-        req.session.account.appliances = req.body.appliances
         res.redirect('/account/profile')
       } else { 
         next(new Error('Appliances Update Fail'))
@@ -151,11 +155,9 @@ router.post('/profile_ingrediants', function(req, res, next) {
     {ingrediants: req.body.ingrediants},
     function(err, result) {
       if (!err && result != null) {
-        // update for current session
-        req.session.account.ingrediants = req.body.ingrediants
         res.redirect('/account/profile')
       } else { 
-        next(new Error('Skills Update Fail'))
+        next(new Error('Ingrediants Update Fail'))
       }
     })
 })

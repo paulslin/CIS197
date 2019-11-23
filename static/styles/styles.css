@@ -29,7 +29,22 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
   color: #FFF;
-  background-color: #F79E21;
+  background-color: #FF5864;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+.food-btn {
+  width: 15%;
+  border-radius: 8px;
+  border: 1.5px solid #000000;
+  margin-bottom: 5px;
+  text-decoration: none;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #FFF;
+  background-color: #FF655B;
   display: inline-block;
   cursor: pointer;
   text-align: center;
@@ -75,4 +90,20 @@ ul {
   top:0px;
   left:0px;
   background-color: rgba(0,0,0,.5);
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }

@@ -11,9 +11,16 @@
       Chalet New York 1970; font-style: italic">dinder</h1>
       <% if (user) { %>
         <H2>Welcome, <%= user %> </H2> <br />
-        <a class="btn" href="/account/profile" style="width: 30%">Profile</a>
-        <a class="btn" href="/account/signup" style="width: 30%">Match</a>
-        <a class="btn" href="/account/logout" style="width: 30%">Logout</a>
+        <div class="row">
+          <H2>Account and Profile</H2>
+          <a class="btn" href="/account/profile" style="width: 45%">Profile</a>
+          <a class="btn" href="/account/logout" style="width: 45%">Logout</a>
+        </div>
+        <div>
+          <H2>Find Matches</H2>
+          <a class="btn" href="/match/food" style="width: 45%">Find Recommended Food</a>
+          <a class="btn" href="/account/signup" style="width: 45%">Find Matching Individuals</a>
+        </div>
       <% } else { %>
         <div class="main-body">
           <h3>What is Dinder?</h3>

@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <title>Food Matching</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/static/styles/styles.css"/>
+  </head>
+  <body>
+      <H2>Recommended Dishes</H2>
+      <form method="POST"><button class="btn" type="submit">Update</button></form>
+      <div class="row">
+        <div class="column" style=" float: left; width: 60%;">
+            
+          <div class="accordion" id="accordian">
+            <script type="text/javascript">
+              // create helper function to update right column divider
+              function updateDiv(val){
+                var arr = eval(val); 
+                // create helper function to place list items into string form
+                function create_lists (list) {
+                  var blank = ""
+                  if (list) {
+                    list.forEach(item => blank = blank + item + "</br>");
+                  } else {
+                    blank = "None"
+                  }
+                  return blank
+                }
+                // create string forms of haves and missing
+                var have_skills = create_lists(arr[3][0])
+                var missing_skills = create_lists(arr[4][0])
+                var have_appliances = create_lists(arr[3][1])
+                var missing_appliances = create_lists(arr[4][1])
+                var have_ingrediants = create_lists(arr[3][2])
+                var missing_ingrediants = create_lists(arr[4][2])
+
+                // update HTML section of divider
+                document.getElementById("foodSelection").innerHTML = 
+                "<H1>" + arr[0] + "</H1><br>" +
+                "<H3> Score: " + arr[1] + "%</H3><br>" + 
+                "<table style='width: 100%'>" + "<tr> <th>Category</th> <th>Fulfilled</th><th>Missing</th></tr>" + 
+                "<tr><td> Skills</td>" + "<td>" + have_skills + "</td>" + "<td>" + missing_skills + "</td></tr>" + 
+                "<tr><td> Appliances</td>" + "<td>" + have_appliances + "</td>" + "<td>" + missing_appliances + "</td></tr>" + 
+                "<tr><td> Ingrediants</td>" + "<td>" + have_ingrediants + "</td>" + "<td>" + missing_ingrediants + "</td></tr>" + 
+                  "</table>";
+                }
+            </script>
+
+            <div class="card">
+
+
+
+              <!-- Accordian for Perfect Matching-->
+              <div class="card-header" id="perfectID">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link" style="background-color:  #FF5864; color: white" type="button" data-toggle="collapse" data-target="#collapsePerfect">
+                      Perfect Matching
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapsePerfect" class="collapse" display="none" aria-labelledby="perfectID" data-parent="#accordian">
+                  <div class="card-body">
+                    <div class="list-cont">
+                      <ul>
+                          <% for (i in account.perfectFood) { %>
+                              <li> <button class="food-btn" onclick="updateDiv('<%= JSON.stringify(account.perfectFood[i])%>')"><%= account.perfectFood[i][1] + '%: ' + account.perfectFood[i][0]%></button></li>
+                          <% } %>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              
+              <!-- Accordian for High Matching-->
+              <div class="card-header" id="highID">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link" style="background-color:  #FF5864; color: white" type="button" data-toggle="collapse" data-target="#collapseHigh">
+                      High Matching
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseHigh" class="collapse" display="none" aria-labelledby="highID" data-parent="#accordian">
+                  <div class="card-body">
+                    <div class="list-cont">
+                      <ul>
+                          <% for (i in account.highFood) { %>
+                              <li> <button class="food-btn" onclick="updateDiv('<%= JSON.stringify(account.highFood[i])%>')"><%= account.highFood[i][1] + '%: ' + account.highFood[i][0]%></button></li>
+                          <% } %>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Accordian for Medium Matching-->
+              <div class="card-header" id="mediumID">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link" style="background-color:  #FF5864; color: white" type="button" data-toggle="collapse" data-target="#collapseMedium">
+                      Medium Matching
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseMedium" class="collapse" display="none" aria-labelledby="mediumID" data-parent="#accordian">
+                  <div class="card-body">
+                    <div class="list-cont">
+                      <ul>
+                          <% for (i in account.mediumFood) { %>
+                              <li> <button class="food-btn" onclick="updateDiv('<%= JSON.stringify(account.mediumFood[i])%>')"><%= account.mediumFood[i][1] + '%: ' + account.mediumFood[i][0]%></button></li>
+                          <% } %>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+              <!-- Accordian for Low Matching-->
+              <div class="card-header" id="lowID">
+                <h2 class="mb-0">
+                  <button class="btn btn-link" style="background-color:  #FF5864; color: white" type="button" data-toggle="collapse" data-target="#collapselow">
+                    Low Matching
+                  </button>
+                </h2>
+              </div>
+              <div id="collapselow" class="collapse" display="none" aria-labelledby="lowID" data-parent="#accordian">
+                <div class="card-body">
+                  <div class="list-cont">
+                    <ul>
+                        <% for (i in account.lowFood) { %>
+                            <li> <button class="food-btn" onclick="updateDiv('<%= JSON.stringify(account.lowFood[i])%>')"><%= account.lowFood[i][1] + '%: ' + account.lowFood[i][0]%></button></li>
+                        <% } %>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="column" style=" float: right; width: 40%;">
+          <div id = "foodSelection">
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

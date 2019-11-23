@@ -9,20 +9,26 @@
         <div class="nav">
             <h1 style="font-size: 70; margin-top: 25px; font-family: 
             Chalet New York 1970; font-style: italic">dinder</h1>
+            <!-- <img src="/static/tinder.png" alt="Dinder"> -->
             <div class="row">
-                <H2>Welcome, <%= user %> <a href="/account/logout">Logout</a> </H2>
             </div>
             <div class="row">
+                    <!-- Showing Profile Prescences -->
                     <div class="column" style=" float: left; width: 45%;">
                         <H2> Your Profile</H2>
                         <b>Name:</b> <%= account.firstName + " " + account.lastName%><br >
                         <b>Age:</b> <%= account.age %><br >
                         <b>Gender:</b> <%= account.gender %><br >
+                        <!-- Cuisines -->
                         <b>Cuisines:</b>
                         <% if (!account.cuisines) { %>
+                            <!-- Case 1: No cuisines inputted: display no cuisines and prompt update -->
                             <p>No cuisines inputted, please: <a href="/account/profile_cuisines">update cuisines</a></p>
+                        <% } else if (account.cuisines[0].length === 1) { %>
+                            <!-- Case 2: Only 1 cuisine inputted: display only that one cuisine-->
+                            <li><%= account.cuisines%> </li>
                         <% } else { %>
-                            <!--- Need to change so that also accounts for only 1 item-->
+                            <!-- Case 3: More than 1 cuisine inputted: display multiple cuisines in list-->
                             <div class="list-cont">
                                 <ul>
                                     <% for (i in account.cuisines) { %>
@@ -31,11 +37,11 @@
                                 </ul>
                             </div>
                         <% }%>
+                        <!-- Skills -->
                         <b>Skills:</b>
                         <% if (!account.skills) { %>
                             <p>No skills inputted, please: <a href="/account/profile_skills">update skills</a></p>
                         <% } else { %>
-                            <!--- Need to change so that also accounts for only 1 item-->
                             <div class="list-cont">
                                 <ul>
                                     <% for (i in account.skills) { %>
@@ -44,8 +50,8 @@
                                 </ul>
                             </div>
                         <% }%>
+                        <!-- Appliances -->
                         <b>Appliances:</b>
-                        <!--
                         <% if (!account.appliances) { %>
                             <p>No appliances inputted, please: <a href="/account/profile_appliances">update appliances</a></p>
                         <% } else { %>
@@ -57,12 +63,11 @@
                                 </ul>
                             </div>
                         <% }%>
-                        --><br >
+                        <!-- Ingrediants -->
                         <b>Ingrediants:</b>
                         <% if (!account.ingrediants) { %>
                             <p>No ingrediants inputted, please: <a href="/account/profile_ingrediants">update ingrediants</a></p>
                         <% } else { %>
-                            <!--- Need to change so that also accounts for only 1 item-->
                             <div class="list-cont">
                                 <ul>
                                     <% for (i in account.ingrediants) { %>
@@ -72,12 +77,18 @@
                             </div>
                         <% }%>
                     </div>
+                    <!-- Edit Profile Preferences -->
                     <div class="column" style="float: right; width: 45%;" >
                         <H2> Edit Profile Preferences</H2>
-                          <a class="btn" href="/account/profile_cuisines">Cuisines</a> <br >
-                          <a class="btn" href="/account/profile_skills">Skills</a> <br >
-                          <a class="btn" href="/account/profile_appliances">Appliances</a> <br >
-                          <a class="btn" href="/account/profile_ingrediants">Ingrediants</a> <br >
+                        <a class="btn" href="/account/profile_cuisines">Cuisines</a> <br >
+                        <a class="btn" href="/account/profile_skills">Skills</a> <br >
+                        <a class="btn" href="/account/profile_appliances">Appliances</a> <br >
+                        <a class="btn" href="/account/profile_ingrediants">Ingrediants</a> <br >
+                        <H2> Matching Options</H2>
+                        <a class="btn" href="/match/food">Find Recommended Foods</a> <br >
+                        <H2> User Options</H2>
+                        <a class="btn" style="background-color: blue;" href="/">Return to Front Page</a> <br >
+                        <a class="btn" style="background-color: blue;" href="/account/logout">Logout</a> <br >
                     </div>
                 </div>
             </div>

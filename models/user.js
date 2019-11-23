@@ -12,6 +12,10 @@ var userSchema = new mongoose.Schema({
   skills: { type: [String] },
   appliances: { type: [String] },
   ingrediants: { type: [String] },
+  perfectFood: {type: []},
+  highFood: {type: []},
+  mediumFood: {type: []},
+  lowFood: {type: []},
 })
 
 module.exports = mongoose.model('User', userSchema)
