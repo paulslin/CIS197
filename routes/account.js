@@ -10,21 +10,14 @@ router.get('/signup', function(req, res) {
 router.get('/login', function(_, res) {
   res.render('login')
 })
-
 router.get('/profile', async (req, res) => {
-  // User.findById(req.session.userId)
-  // .then(user => {
-  //   res.render('profile.html', {account: user})
-  // })
   const user = await User.findById(req.session.userId)
   res.render('profile.html', {user: req.session.user, account: user})
 })
-
 router.get('/profile_cuisines', async (req, res) => {
   const user = await User.findById(req.session.userId)
   res.render('profile_cuisines.html', {account: user})
 })
-
 router.get('/profile_skills', async (req, res) => {
   const user = await User.findById(req.session.userId)
   res.render('profile_skills.html', {account: user})
@@ -73,7 +66,8 @@ router.post('/login', function(req, res, next) {
   ) {
     // Success Case: if user passes, then allow and redirect to profile
     if (!err && result != null) {
-      req.session.userId = result.id
+      req.session.user = username
+      req.session.account = result
       res.redirect('/account/profile')
     } else {
       // Unsuccessful Case: user fails, say authenticaion fails
@@ -87,13 +81,15 @@ router.post('/profile', function(req, res, next) {
   var username = req.session.account.username
   var password = req.session.account.password
   // find user among users list
-  User.findOne({ username: username, password: password }, function(err, result) { 
+  User.findOne({ username: username, password: password }, function(
+    err,
+    result
+  ) {
     if (!err && result != null) {
-    // Success Case: redirect to profile page
+      console.log(result)
       res.redirect('/account/profile')
     } else { 
-    // Unsuccessful Case: user profile fails
-      next(new Error('Profile Access unavailable'))
+      next(new Error('Cuisines Update Fail'))
     }
   })
 })
