@@ -18,4 +18,5 @@ var userSchema = new mongoose.Schema({
   lowFood: {type: []},
 })
 
+
 module.exports = mongoose.model('User', userSchema)

@@ -3,6 +3,23 @@ var router = express.Router()
 var isAuthenticated = require('../middlewares/isAuthenticated')
 var User = require('../models/user.js')
 
+
+/**
+ * Deleting Usernames
+console.log(User.find({username: "testuser7"}))
+
+foods_list = ['5d942b4abbd73935787ce876']
+foods_list.forEach(element => User.deleteMany({ _id: element }, function (err) {
+  if (err) return handleError(err);
+}))
+
+//router.use(isAuthenticated)
+User.find({}, function(err, users) {
+  console.log(users)
+})
+
+**/
+
 // get routes
 router.get('/signup', function(req, res) {
   res.render('signup')
@@ -10,6 +27,7 @@ router.get('/signup', function(req, res) {
 router.get('/login', function(_, res) {
   res.render('login')
 })
+
 router.get('/profile', async (req, res) => {
   const user = await User.findById(req.session.userId)
   res.render('profile.html', {user: req.session.user, account: user})
@@ -66,8 +84,9 @@ router.post('/login', function(req, res, next) {
   ) {
     // Success Case: if user passes, then allow and redirect to profile
     if (!err && result != null) {
-      req.session.user = username
+      req.session.userId = result.id
       req.session.account = result
+      //req.session.user = result
       res.redirect('/account/profile')
     } else {
       // Unsuccessful Case: user fails, say authenticaion fails
@@ -86,7 +105,6 @@ router.post('/profile', function(req, res, next) {
     result
   ) {
     if (!err && result != null) {
-      console.log(result)
       res.redirect('/account/profile')
     } else { 
       next(new Error('Cuisines Update Fail'))

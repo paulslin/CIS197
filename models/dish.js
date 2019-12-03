@@ -20,22 +20,22 @@ foods_list.forEach(element => Dish.deleteMany({ dishName: element }, function (e
 
 
 var cake = new Dish ({dishName: 'Cake', dishCuisine:  'French', dishIngrediants: ['Egg', 'Flour', 'Sugar'],
-  dishSkills:['Baking', 'Decorating', 'Mixing'], dishAppliances: ['Oven', 'Pan', 'Whisk']})
+  dishSkills:['Baking', 'Decorating', 'Mixing'], dishAppliances: ['Measuring Spoon', 'Oven', 'Pan', 'Whisk']})
 cake.save(function(err) {})
 var cookie = new Dish ({dishName: 'Cookie', dishCuisine:  'American', dishIngrediants: ['Egg', 'Flour', 'Sugar'],
-  dishSkills:['Baking', 'Decorating', 'Kneading', 'Mixing'], dishAppliances: ['Oven', 'Tray', 'Whisk']})
+  dishSkills:['Baking', 'Decorating', 'Kneading', 'Mixing'], dishAppliances: ['Measuring Spoon', 'Oven', 'Tray', 'Whisk']})
 cookie.save(function(err) {})
-var ice_cream = new Dish ({dishName: 'Ice_Cream', dishCuisine:  'American', dishIngrediants: ['Milk', 'Cream', 'Sugar'],
-  dishSkills:['Mixing'], dishAppliances: ['Freezer', 'Whisk']})
+var ice_cream = new Dish ({dishName: 'Ice Cream', dishCuisine:  'American', dishIngrediants: ['Milk', 'Cream', 'Sugar'],
+  dishSkills:['Mixing'], dishAppliances: ['Freezer', 'Measuring Spoon', Whisk']})
 ice_cream.save(function(err) {})
 var egg_tart = new Dish ({dishName: 'Egg_Tart', dishCuisine:  'Chinese', dishIngrediants: ['Egg', 'Flour', 'Milk', 'Sugar'],
-  dishSkills:['Baking', 'Kneading', 'Mixing'], dishAppliances: ['Freezer', 'Oven', 'Tray', 'Whisk']})
+  dishSkills:['Baking', 'Kneading', 'Mixing'], dishAppliances: ['Freezer', 'Measuring Spoon', 'Oven', 'Tray', 'Whisk']})
 egg_tart.save(function(err) {})
-var cream_puff= new Dish ({dishName: 'Cream_Puff', dishCuisine:  'French', dishIngrediants: ['Cream', 'Egg', 'Flour', 'Sugar'],
-  dishSkills:['Baking', 'Decorating', 'Mixing'], dishAppliances: ['Freezer', 'Pan', 'Whisk']})
+var cream_puff= new Dish ({dishName: 'Cream Puff', dishCuisine:  'French', dishIngrediants: ['Cream', 'Egg', 'Flour', 'Sugar'],
+  dishSkills:['Baking', 'Decorating', 'Mixing'], dishAppliances: ['Freezer', 'Measuring Spoon' 'Pan', 'Whisk']})
 cream_puff.save(function(err) {})
 var cheesecake = new Dish ({dishName: 'Cheesecake', dishCuisine:  'French', dishIngrediants: ['Cinnamon', 'Cream', 'Egg', 'Flour', 'Sugar'],
-  dishSkills:['Baking', 'Decorating', 'Mixing'], dishAppliances: ['Freezer', 'Pan', 'Whisk']})
+  dishSkills:['Baking', 'Decorating', 'Mixing'], dishAppliances: ['Freezer', 'Measuring Spoon', 'Pan', 'Whisk']})
 cheesecake.save(function(err) {})
 **/
 

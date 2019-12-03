@@ -1,30 +1,74 @@
 <html>
   <head>
     <title>Profile Appliances</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles/styles.css"/>
   </head>
   <body>
-    <form method="POST">
-      <H2>Cuisines</H2>
-      <p>What appliances do you own?</p>
-      <button type="submit">Update</button>
-      <div class="row">
-          <div class="column" style=" float: left; width: 45%;">
-              <input type="checkbox" name="appliances" value="Air Fryer"> Air Fryer<br>
-              <input type="checkbox" name="appliances" value="Blender"> Blender<br>
-              <input type="checkbox" name="appliances" value="Cutting Board"> Cutting Board<br>
-              <input type="checkbox" name="appliances" value="Freezer"> Freezer<br>
-              <input type="checkbox" name="appliances" value="Grill"> Grill<br>
-              <input type="checkbox" name="appliances" value="Ladle"> Ladle<br>
-              <input type="checkbox" name="appliances" value="Microwave"> Microwave<br>
-              <input type="checkbox" name="appliances" value="Oven"> Oven<br>
-              <input type="checkbox" name="appliances" value="Pan"> Pan<br>
-              <input type="checkbox" name="appliances" value="Pot"> Pot<br>
-              <input type="checkbox" name="appliances" value="Rice Cooker"> Rice Cooker<br>
-              <input type="checkbox" name="appliances" value="Stove"> Stove<br>
-              <input type="checkbox" name="appliances" value="Toaster"> Tray<br>
-              <input type="checkbox" name="appliances" value="Toaster"> Toaster<br>
-              <input type="checkbox" name="appliances" value="Whisk"> Whisk<br>   
+      <div class="nav">
+          <div class ="row" style="height: 95%; background-image: linear-gradient(to right, #FD297B, #FF5864, #FF655B)">
+            <img style="height: 118%" src="/static/dinder.jpg" alt="Dinder">
+            <h2 style="font-size: 80; color: #424242; font-family: 
+            Chalet New York 1980; font-style: italic; display: inline; margin-left:1%; ">dinder</h2>
+            <h2 style="font-size: 20; color: #424242; font-family: 
+            Chalet New York 1970; text-align:right;; display: inline; margin-left:.25%">Match.Cook.Chill</h2> 
           </div>
+          <div class ="row" style="height: 20%; background-image: linear-gradient(to right, #FD297B, #FF5864, #FF655B)"></div>
+        </div>
+      <div style="margin-left: 2%;">
+          <form method="POST">
+              <H2>Appliance</H2>
+              <p>What appliances do you own?</p>
+              <button type="submit"  style="font-family: 'New York';">Update</button>
+              <div class="row">
+                  <div class="column" style=" float: left; width: 23%; margin-left: 4%; text-align: center;">
+                      <img class="img" src="/static/appliance/air_fryer.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Air Fryer"> Air Fryer<br>
+                      <img class="img" src="/static/appliance/cutting board.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Cutting Board"> Cutting Board<br>
+                      <img class="img" src="/static/appliance/knife.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Knife"> Knife<br>
+                      <img class="img" src="/static/appliance/pan.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Pan"> Pan<br>
+                      <img class="img" src="/static/appliance/stove.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Stove"> Stove<br>
+                  </div>
+                  <div class="column" style="float: left; width: 23%; text-align: center;" >
+                      <img class="img" src="/static/appliance/blender.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Blender"> Blender<br>
+                      <img class="img" src="/static/appliance/freezer.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Freezer"> Freezer<br>
+                      <img class="img" src="/static/appliance/measuring_spoons.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Measuring Spoon"> Measuring Spoon<br>
+                      <img class="img" src="/static/appliance/peeler.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Peeler"> Peeler<br>
+                      <img class="img" src="/static/appliance/trau.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Tray"> Tray<br>
+                  </div>
+                  <div class="column" style="float: left; width: 23%; text-align: center;">
+                      <img class="img" src="/static/appliance/blow_torch.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Blow Torch"> Blow Torch<br>
+                      <img class="img" src="/static/appliance/grater.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Grater"> Grater<br>
+                      <img class="img" src="/static/appliance/microwave.jfif"><br >
+                      <input type="checkbox" name="appliances" value="Measuring"> Microwave<br>
+                      <img class="img" src="/static/appliance/pot.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Pot"> Pot<br>
+                      <img class="img" src="/static/appliance/toaster.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Toaster"> Toaster<br>
+                  </div>
+                  <div class="column" style="float: left; width: 23%; text-align: center;">
+                      <img class="img" src="/static/appliance/can_opener.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Can Opener"> Can Opener<br>
+                      <img class="img" src="/static/appliance/grill.jfif"><br >
+                      <input type="checkbox" name="appliances" value="Grill"> Grill<br>
+                      <img class="img" src="/static/appliance/stove.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Oven"> Oven<br>
+                      <img class="img" src="/static/appliance/rice_cooker.jfif"><br >
+                      <input type="checkbox" name="appliances" value="Rice Cooker"> Rice Cooker<br>
+                      <img class="img" src="/static/appliance/whisk.jpg"><br >
+                      <input type="checkbox" name="appliances" value="Whisk"> Whisk<br> 
+                  </div>
+              </div>
       </div>
     </form>
   </body>

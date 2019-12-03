@@ -1,33 +1,67 @@
 <html>
   <head>
     <title>Profile Skills</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles/styles.css"/>
   </head>
   <body>
-    <form method="POST">
-      <H2>Skills</H2>
-      <p>What types of skills do you have?</p>
-      <button type="submit">Update</button>
-      <div class="row">
-          <div class="column" style=" float: left; width: 45%;">
-              <input type="checkbox" name="skills" value="Baking"> Baking<br>
-              <input type="checkbox" name="skills" value="Blending"> Blending<br>
-              <input type="checkbox" name="skills" value="Boiling"> Boiling<br>
-              <input type="checkbox" name="skills" value="Cutting"> Cutting<br>
-              <input type="checkbox" name="skills" value="Dicing"> Decorating<br>
-              <input type="checkbox" name="skills" value="Dicing"> Dicing<br>
-              <input type="checkbox" name="skills" value="Frying"> Frying<br>
-              <input type="checkbox" name="skills" value="Grilling"> Grilling<br>
-              <input type="checkbox" name="skills" value="Kneading"> Kneading<br>
-              <input type="checkbox" name="skills" value="Microwaving"> Microwaving<br>
-              <input type="checkbox" name="skills" value="Mixing"> Mixing<br>
-              <input type="checkbox" name="skills" value="Roasting"> Roasting<br>
-              <input type="checkbox" name="skills" value="Sauteeing"> Sauteeing<br>
-              <input type="checkbox" name="skills" value="Steaming"> Steaming<br>
-              <input type="checkbox" name="skills" value="Stuffing"> Stuffing<br> 
+      <div class="nav">
+          <div class ="row" style="height: 95%; background-image: linear-gradient(to right, #FD297B, #FF5864, #FF655B)">
+            <img style="height: 118%" src="/static/dinder.jpg" alt="Dinder">
+            <h2 style="font-size: 80; color: #424242; font-family: 
+            Chalet New York 1980; font-style: italic; display: inline; margin-left:1%; ">dinder</h2>
+            <h2 style="font-size: 20; color: #424242; font-family: 
+            Chalet New York 1970; text-align:right;; display: inline; margin-left:.25%">Match.Cook.Chill</h2> 
           </div>
-          <div class="column" style="float: right; width: 45%;" >
-          </div>
+          <div class ="row" style="height: 20%; background-image: linear-gradient(to right, #FD297B, #FF5864, #FF655B)"></div>
+        </div>
+      <div style="margin-left: 2%;">
+        <form method="POST">
+          <H2>Skills</H2>
+          <p>What types of skills do you have?</p>
+          <button type="submit" style="font-family: 'New York';">Update</button>
+          <div class="row">
+              <div class="column" style=" float: left; width: 23%; margin-left: 4%; text-align: center;">
+                  <img class="img" src="/static/skills/baking.jpg"><br >
+                  <input type="checkbox" name="skills" value="Baking"> Baking<br>
+                  <img class="img" src="/static/skills/decorating.jpg"><br >
+                  <input type="checkbox" name="skills" value="Dicing"> Decorating<br>
+                  <img class="img" src="/static/skills/kneading.jfif"><br >
+                  <input type="checkbox" name="skills" value="Kneading"> Kneading<br>
+                  <img class="img" src="/static/skills/roasting.jfif"><br >
+                  <input type="checkbox" name="skills" value="Roasting"> Roasting<br>
+              </div>
+              <div class="column" style="float: left; width: 23%; text-align: center;" >
+                  <img class="img" src="/static/skills/blending.jpg"><br >
+                  <input type="checkbox" name="skills" value="Blending"> Blending<br>
+                  <img class="img" src="/static/skills/dicing.jpg"><br >
+                  <input type="checkbox" name="skills" value="Dicing"> Dicing<br>
+                  <img class="img" src="/static/skills/microwaving.jpg"><br >
+                  <input type="checkbox" name="skills" value="Microwaving"> Microwaving<br>
+                  <img class="img" src="/static/skills/sauteeing.jfif"><br >
+                  <input type="checkbox" name="skills" value="Sauteeing"> Sauteeing<br>
+              </div>
+              <div class="column" style="float: left; width: 23%; text-align: center;">
+                  <img class="img" src="/static/skills/boiling.jpg"><br >
+                  <input type="checkbox" name="skills" value="Boiling"> Boiling<br>
+                  <img class="img" src="/static/skills/frying.jpg"><br >
+                  <input type="checkbox" name="skills" value="Frying"> Frying<br>
+                  <img class="img" src="/static/skills/mixing.jfif"><br >
+                  <input type="checkbox" name="skills" value="Mixing"> Mixing<br>
+                  <img class="img" src="/static/skills/steaming.jfif"><br >
+                  <input type="checkbox" name="skills" value="Steaming"> Steaming<br>
+              </div>
+              <div class="column" style="float: left; width: 23%; text-align: center;">
+                  <img class="img" src="/static/skills/chopping.jpg"><br >
+                  <input type="checkbox" name="skills" value="Cutting"> Cutting<br>
+                  <img class="img" src="/static/skills/grilling.jpg"><br >
+                  <input type="checkbox" name="skills" value="Grilling"> Grilling<br>
+                  <img class="img" src="/static/skills/plating.jpg"><br >
+                  <input type="checkbox" name="skills" value="Plating"> Plating<br>
+                  <img class="img" src="/static/skills/washing.jpg"><br >
+                  <input type="checkbox" name="skills" value="Washing"> Washing<br> 
+              </div>
+        </form>
+        </div>
       </div>
-    </form>
   </body>
 </html>

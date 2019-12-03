@@ -1,25 +1,38 @@
 <html>
   <head>
     <title>Sign up page</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles/styles.css"/>
   </head>
   <body>
-    <h1>Sign up</h1>
-    <form method="POST">
-      Username: <br />
-      <input type="text" name="username" /> <br />
-      Password: <br />
-      <input type="password" name="password" /> <br />
-      First Name: <br />
-      <input type="text" name="firstName" /> <br />
-      Last Name: <br />
-      <input type="text" name="lastName" /> <br />
-      Age: <br />
-      <input type="range" name="age" id="ageBar" min="1" max="100" value="50" oninput="showAge.value = ageBar.value">
-      <output name="showAge" id="showAge">50</output><br>
-      Gender: <br />
-      <input type="radio" name="gender" value="male"> Male<br>
-      <input type="radio" name="gender" value="female"> Female<br>
-      <button type="submit">Sign up</button>
-    </form>
+      <div class="nav">
+          <div class ="row" style="height: 95%; background-image: linear-gradient(to right, #FD297B, #FF5864, #FF655B)">
+            <img style="height: 118%" src="/static/dinder.jpg" alt="Dinder">
+            <h2 style="font-size: 80; color: #424242; font-family: 
+            Chalet New York 1980; font-style: italic; display: inline; margin-left:1%; ">dinder</h2>
+            <h2 style="font-size: 20; color: #424242; font-family: 
+            Chalet New York 1970; text-align:right;; display: inline; margin-left:.25%">Match.Cook.Chill</h2> 
+          </div>
+          <div class ="row" style="height: 20%; background-image: linear-gradient(to right, #FD297B, #FF5864, #FF655B)"></div>
+        </div>
+    <div style="margin-left: 2%">
+        <h1>Sign up</h1>
+        <form method="POST">
+          Username: <br />
+          <input type="text" name="username" /> <br />
+          Password: <br />
+          <input type="password" name="password" /> <br />
+          First Name: <br />
+          <input type="text" name="firstName" /> <br />
+          Last Name: <br />
+          <input type="text" name="lastName" /> <br />
+          Age: <br />
+          <input type="range" name="age" id="ageBar" min="1" max="100" value="50" oninput="showAge.value = ageBar.value">
+          <output name="showAge" id="showAge">50</output><br>
+          Gender: <br />
+          <input type="radio" name="gender" value="male"> Male<br />
+          <input type="radio" name="gender" value="female"> Female<br />
+          <button type="submit" style="font-family: 'New York'; margin-top: .25%; ">Sign up</button>
+        </form>
+    </div>
   </body>
 </html>

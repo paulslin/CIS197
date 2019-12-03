@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint routes models server.js"
+    "lint": "eslint routes models server.js",
+    "dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^3.1.0",
     "body-parser": "^1.19.0",
     "cookie-session": "^2.0.0-beta.3",
     "ejs": "^2.7.1",
@@ -17,6 +19,6 @@
     "express": "^4.17.1",
     "mockgoose": "^7.3.5",
     "mongoose": "^5.7.3",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.19.4"
   }
 }

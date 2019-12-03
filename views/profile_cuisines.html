@@ -1,34 +1,68 @@
 <html>
   <head>
     <title>Profile Cuisines</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles/styles.css"/>
   </head>
   <body>
-    <form method="POST">
-      <H2>Cuisines</H2>
-      <p>What types of cuisines can you cook?</p>
-      <button type="submit">Update</button>
-      <div class="row">
-          <div class="column" style=" float: left; width: 45%;">
-              <input type="checkbox" name="cuisines" value="American"> American<br>
-              <input type="checkbox" name="cuisines" value="Chinese"> Chinese<br>
-              <input type="checkbox" name="cuisines" value="Greek"> Greek<br>
-              <input type="checkbox" name="cuisines" value="Indian"> Indian<br>
-              <input type="checkbox" name="cuisines" value="Korean"> Korean<br>
-              <input type="checkbox" name="cuisines" value="Mexican"> Mexican<br>
-              <input type="checkbox" name="cuisines" value="Soul"> Soul<br>
-              <input type="checkbox" name="cuisines" value="Thai"> Thai<br>
+      <div class="nav">
+          <div class ="row" style="height: 95%; background-image: linear-gradient(to right, #FD297B, #FF5864, #FF655B)">
+            <img style="height: 118%" src="/static/dinder.jpg" alt="Dinder">
+            <h2 style="font-size: 80; color: #424242; font-family: 
+            Chalet New York 1980; font-style: italic; display: inline; margin-left:1%; ">dinder</h2>
+            <h2 style="font-size: 20; color: #424242; font-family: 
+            Chalet New York 1970; text-align:right;; display: inline; margin-left:.25%">Match.Cook.Chill</h2> 
           </div>
-          <div class="column" style="float: right; width: 45%;" >
-              <input type="checkbox" name="cuisines" value="Cajun"> Cajun<br>
-              <input type="checkbox" name="cuisines" value="French"> French<br>
-              <input type="checkbox" name="cuisines" value="Italian"> Italian<br>
-              <input type="checkbox" name="cuisines" value="Japanese"> Japanese<br>
-              <input type="checkbox" name="cuisines" value="Mediterranean"> Mediterranean<br>
-              <input type="checkbox" name="cuisines" value="Peruvian"> Peruvian<br>
-              <input type="checkbox" name="cuisines" value="Spanish"> Spanish<br>
-              <input type="checkbox" name="cuisines" value="Vietnamese"> Vietnamese<br>
-          </div>
-      </div>
-    </form>
+          <div class ="row" style="height: 20%; background-image: linear-gradient(to right, #FD297B, #FF5864, #FF655B)"></div>
+        </div>
+      <div style="margin-left: 2%;">
+          <form method="POST">
+              <H2>Cuisines</H2>
+              <p>What types of cuisines can you cook?</p>
+              <button type="submit" style="font-family: 'New York';">Update</button><br >
+              <div class="row">
+                  <div class="column" style=" float: left; width: 23%; margin-left: 4%; text-align: center;">
+                      <img class="img" src="/static/cuisine/american.jpg"><br >
+                      <input type="checkbox" name="cuisines" value="American"> American<br>
+                      <img class="img" src="/static/cuisine/greek.jfif"><br >
+                      <input type="checkbox" name="cuisines" value="Greek"> Greek<br>
+                      <img class="img" src="/static/cuisine/korean.jpg"><br >
+                      <input type="checkbox" name="cuisines" value="Korean"> Korean<br>
+                      <img class="img" src="/static/cuisine/soul.jpg"><br >
+                      <input type="checkbox" name="cuisines" value="Soul"> Soul<br>
+                  </div>
+                  <div class="column" style="float: left; width: 23%; text-align: center;" >
+                      <img class="img" src="/static/cuisine/cajun.jpg"><br >
+                      <input type="checkbox" name="cuisines" value="Cajun"> Cajun<br>
+                      <img class="img" src="/static/cuisine/italian.jpg"><br >
+                      <input type="checkbox" name="cuisines" value="Italian"> Italian<br>
+                      <img class="img" src="/static/cuisine/mediterranean.jpg"><br >
+                      <input type="checkbox" name="cuisines" value="Mediterranean"> Mediterranean<br>
+                      <img class="img" src="/static/cuisine/spanish.jfif"><br >
+                      <input type="checkbox" name="cuisines" value="Spanish"> Spanish<br>
+                  </div>
+                  <div class="column" style="float: left; width: 23%; text-align: center;">
+                      <img class="img" src="/static/cuisine/chinese.jpg"><br >
+                      <input type="checkbox" name="cuisines" value="Chinese"> Chinese<br>
+                      <img class="img" src="/static/cuisine/indian.jpg"><br >
+                      <input type="checkbox" name="cuisines" value="Indian"> Indian<br>
+                      <img class="img" src="/static/cuisine/mexican.jfif"><br >
+                      <input type="checkbox" name="cuisines" value="Mexican"> Mexican<br>
+                      <img class="img" src="/static/cuisine/thai.jfif"><br >
+                      <input type="checkbox" name="cuisines" value="Thai"> Thai<br>
+                  </div>
+                  <div class="column" style="float: left; width: 23%; text-align: center;">
+                      <img class="img" src="/static/cuisine/french.jfif"><br >
+                      <input type="checkbox" name="cuisines" value="French"> French<br>
+                      <img class="img" src="/static/cuisine/japanese.jpg"><br >
+                      <input type="checkbox" name="cuisines" value="Japanese"> Japanese<br>
+                      <img class="img" src="/static/cuisine/peruvian.jpg"><br >
+                      <input type="checkbox" name="cuisines" value="Peruvian"> Peruvian<br>
+                      <img class="img" src="/static/cuisine/vietnamese.jpg"><br >
+                      <input type="checkbox" name="cuisines" value="Vietnamese"> Vietnamese<br>
+                  </div>
+              </div>
+            </form>
+      </div>   
+    </div>
   </body>
 </html>

@@ -1,9 +1,9 @@
 var isAuthenticated = function (req, res, next) {
   // set the user
-  if (req.session.user && req.session.user.length > 0) {
+  if (req.session.userId) {
     next()
   } else {
-    res.redirect('/createprofile')
+    res.redirect('/')
   }
 }
 

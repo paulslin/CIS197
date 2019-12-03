@@ -11,8 +11,7 @@
       <H2>Recommended Dishes</H2>
       <form method="POST"><button class="btn" type="submit">Update</button></form>
       <div class="row">
-        <div class="column" style=" float: left; width: 60%;">
-            
+        <div class="column" style=" float: left; width: 55%; margin-left: 2%; margin-right: 2%">
           <div class="accordion" id="accordian">
             <script type="text/javascript">
               // create helper function to update right column divider
@@ -35,13 +34,13 @@
                 var missing_appliances = create_lists(arr[4][1])
                 var have_ingrediants = create_lists(arr[3][2])
                 var missing_ingrediants = create_lists(arr[4][2])
-
                 // update HTML section of divider
                 document.getElementById("foodSelection").innerHTML = 
-                "<H1>" + arr[0] + "</H1><br>" +
-                "<H3> Score: " + arr[1] + "%</H3><br>" + 
-                "<table style='width: 100%'>" + "<tr> <th>Category</th> <th>Fulfilled</th><th>Missing</th></tr>" + 
-                "<tr><td> Skills</td>" + "<td>" + have_skills + "</td>" + "<td>" + missing_skills + "</td></tr>" + 
+                "<H1>" + arr[0] + "</H1>" +
+                "<H3> Score: " + arr[1] + "%</H3>" + 
+                "<H3> Cuisine: " + arr[6] + "</H3><br>" + 
+                "<table style='width: 100%'>" + "<tr> <th>CATEGORY</th> <th>FULFILLED</th><th>MISSING</th></tr>" + 
+                "<tr><td> Skills</td>" + "<td >" + have_skills + "</td>" + "<td>" + missing_skills + "</td></tr>" + 
                 "<tr><td> Appliances</td>" + "<td>" + have_appliances + "</td>" + "<td>" + missing_appliances + "</td></tr>" + 
                 "<tr><td> Ingrediants</td>" + "<td>" + have_ingrediants + "</td>" + "<td>" + missing_ingrediants + "</td></tr>" + 
                   "</table>";
@@ -49,13 +48,10 @@
             </script>
 
             <div class="card">
-
-
-
               <!-- Accordian for Perfect Matching-->
               <div class="card-header" id="perfectID">
                   <h2 class="mb-0">
-                    <button class="btn btn-link" style="background-color:  #FF5864; color: white" type="button" data-toggle="collapse" data-target="#collapsePerfect">
+                    <button class="btn btn-link-foodcat" type="button" data-toggle="collapse" data-target="#collapsePerfect">
                       Perfect Matching
                     </button>
                   </h2>
@@ -70,12 +66,12 @@
                       </ul>
                     </div>
                   </div>
-                </div>
+                </div><br>
               
               <!-- Accordian for High Matching-->
               <div class="card-header" id="highID">
                   <h2 class="mb-0">
-                    <button class="btn btn-link" style="background-color:  #FF5864; color: white" type="button" data-toggle="collapse" data-target="#collapseHigh">
+                    <button class="btn btn-link-foodcat" type="button" data-toggle="collapse" data-target="#collapseHigh">
                       High Matching
                     </button>
                   </h2>
@@ -90,12 +86,12 @@
                       </ul>
                     </div>
                   </div>
-                </div>
+                </div><br>
 
                 <!-- Accordian for Medium Matching-->
               <div class="card-header" id="mediumID">
                   <h2 class="mb-0">
-                    <button class="btn btn-link" style="background-color:  #FF5864; color: white" type="button" data-toggle="collapse" data-target="#collapseMedium">
+                    <button class="btn btn-link-foodcat" type="button" data-toggle="collapse" data-target="#collapseMedium">
                       Medium Matching
                     </button>
                   </h2>
@@ -110,12 +106,12 @@
                       </ul>
                     </div>
                   </div>
-                </div>
+                </div><br>
 
               <!-- Accordian for Low Matching-->
               <div class="card-header" id="lowID">
                 <h2 class="mb-0">
-                  <button class="btn btn-link" style="background-color:  #FF5864; color: white" type="button" data-toggle="collapse" data-target="#collapselow">
+                  <button class="btn btn-link-foodcat" type="button" data-toggle="collapse" data-target="#collapselow">
                     Low Matching
                   </button>
                 </h2>
@@ -135,9 +131,9 @@
           </div>
 
         </div>
-        <div class="column" style=" float: right; width: 40%;">
-          <div id = "foodSelection">
-          </div>
+        <div class="column" style=" float: right; margin-right: 2%; width: 38%;">
+            <a class="btn" style="margin-top: 2%;" href="/account/profile">Return to Front Page</a>
+          <div id = "foodSelection"></div>
         </div>
       </div>
   </body>

@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <title>Food Matching</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/static/styles/styles.css"/>
+  </head>
+  <body>
+        <div style="margin-left: 2%">
+            <H1 style="margin-top: 2%"> <%= chosen_dish.toUpperCase() + ' (' + cuisine + ')'  %> </H1>
+        </div>
+        <div class="row">
+        <div class="column" style=" float: left; width: 30%; margin-left: 2%">
+                
+
+                <script type="text/javascript">
+                    // create helper function to update right column divider
+                    function updateDiv(val){
+                      var arr = eval(val); 
+                      // create helper function to place list items into string form
+                        function create_lists (list) {
+                        var blank = ""
+                        if (list) {
+                            list.forEach(item => blank = blank + item + "</br>");
+                        } else {
+                            blank = "None"
+                        }
+                        return blank
+                        document.getElementById("foodSelection").innerHTML = 
+                            "<H1>" + arr[0] + "</H1>" +
+                            "<H3> Score: " + arr[1] + "%</H3>"
+                        }
+                    }
+                  </script>
+            <H2>Your Statistics</H2>
+                    <H3 style="margin-top: 2%"> Score: <%= JSON.parse(current_user)[1] %> </H3>
+                    <H3 style="margin-top: 2%"> Cuisine Match: <%= JSON.parse(current_user)[2] %> </H3>
+                    <table style='width: 100%'><tr> <th>CATEGORY</th> <th>FULFILLED</th><th>MISSING</th></tr>
+                        <tr>
+                            <td> Skills</td>
+                            <td> <% for (i in JSON.parse(current_user)[3][0]) { %>
+                                <%= JSON.parse(current_user)[3][0][i] %><br >
+                            <% } %> </td>
+                            <td> <% for (i in JSON.parse(current_user)[4][0]) { %>
+                                <%= JSON.parse(current_user)[4][0][i] %><br >
+                            <% } %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Appliances</td>
+                                <td> <% for (i in JSON.parse(current_user)[3][1]) { %>
+                                    <%= JSON.parse(current_user)[3][1][i] %><br >
+                                <% } %> </td>
+                                <td> <% for (i in JSON.parse(current_user)[4][0]) { %>
+                                    <%= JSON.parse(current_user)[4][1][i] %><br >
+                                <% } %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Ingrediants</td>
+                            <td> <% for (i in JSON.parse(current_user)[3][2]) { %>
+                                <%= JSON.parse(current_user)[3][2][i] %><br >
+                            <% } %> </td>
+                            <td> <% for (i in JSON.parse(current_user)[4][2]) { %>
+                                <%= JSON.parse(current_user)[4][2][i] %><br >
+                            <% } %>
+                            </td>
+                        </tr>
+                    </table>  
+        </div>
+        <div class="column" style= "margin-left: 2%; width: 60%;">
+                <H2>Other Statistics</H2>
+                <H2><br></H2>
+                <H2>Top Users</H2>
+                <% for (i in JSON.parse(total_user)) { %>
+                    <!--<%= console.log(JSON.parse(total_user)[i]) %>-->
+                    <li style=" background-color:  #FF5864;">
+                        <%= JSON.parse(total_user)[i][0] %> : <%= JSON.parse(total_user)[i][1] %>
+                        <table style='width: 100%'><tr> <th>CATEGORY</th> <th>BOTH</th> <th>YOU ONLY</th><th>OTHER ONLY</th><th>NEITHER</th></tr>
+                            <tr>
+                                <td> Skills</td>
+                                    <td> <% for (j in JSON.parse(total_user)[i][2][1]) { %>
+                                        <%= JSON.parse(total_user)[i][2][1][j] %><br >
+                                    <% } %>
+                                    <td> <% for (j in JSON.parse(total_user)[i][3][1]) { %>
+                                        <%= JSON.parse(total_user)[i][3][1][j] %><br >
+                                    <% } %>
+                                    <td> <% for (j in JSON.parse(total_user)[i][4][1]) { %>
+                                        <%= JSON.parse(total_user)[i][4][1][j] %><br >
+                                    <% } %>
+                                    <td> <% for (j in JSON.parse(total_user)[i][5][1]) { %>
+                                        <%= JSON.parse(total_user)[i][5][1][j] %><br >
+                                    <% } %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Appliances</td>
+                                    <td> <% for (j in JSON.parse(total_user)[i][2][2]) { %>
+                                        <%= JSON.parse(total_user)[i][2][2][j] %><br >
+                                    <% } %>
+                                    <td> <% for (j in JSON.parse(total_user)[i][3][2]) { %>
+                                        <%= JSON.parse(total_user)[i][3][2][j] %><br >
+                                    <% } %>
+                                    <td> <% for (j in JSON.parse(total_user)[i][4][2]) { %>
+                                        <%= JSON.parse(total_user)[i][4][2][j] %><br >
+                                    <% } %>
+                                    <td> <% for (j in JSON.parse(total_user)[i][5][2]) { %>
+                                        <%= JSON.parse(total_user)[i][5][2][j] %><br >
+                                    <% } %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Ingrediants</td>
+                                    <td> <% for (j in JSON.parse(total_user)[i][2][3]) { %>
+                                        <%= JSON.parse(total_user)[i][2][3][j] %><br >
+                                    <% } %>
+                                    <td> <% for (j in JSON.parse(total_user)[i][3][3]) { %>
+                                        <%= JSON.parse(total_user)[i][3][3][j] %><br >
+                                    <% } %>
+                                    <td> <% for (j in JSON.parse(total_user)[i][4][3]) { %>
+                                        <%= JSON.parse(total_user)[i][4][3][j] %><br >
+                                    <% } %>
+                                    <td> <% for (j in JSON.parse(total_user)[i][5][3]) { %>
+                                        <%= JSON.parse(total_user)[i][5][3][j] %><br >
+                                    <% } %>
+                                </td>
+                            </tr>
+                        </table>
+                    </li>
+                <% } %>
+        </div>
+        <div class="column" style="width: 25%">
+            <div id = "foodSelection"></div>
+        </div>
+    </div>
+                    
+  </body>
+</html>

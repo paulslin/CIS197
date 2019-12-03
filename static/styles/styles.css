@@ -1,5 +1,21 @@
+@font-face {
+  font-family: 'Tokyo';
+  src: url('/static/Tokyo.ttf') 
+}
+
+@font-face {
+  font-family: 'New York';
+  src: url('/static/NY.ttf') 
+}
+
 body {
-  font-family: 'Arial';
+  font-family: 'New York'; 
+  color:  #424242;
+  background-image: url('/static/cutboard.jfif');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0px;
 }
 
@@ -29,7 +45,7 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
   color: #FFF;
-  background-color: #FF5864;
+  background-image: linear-gradient(to right, #FD297B, #FF5864, #FF655B);
   display: inline-block;
   cursor: pointer;
   text-align: center;
@@ -44,10 +60,11 @@ body {
   padding-top: 5px;
   padding-bottom: 5px;
   color: #FFF;
-  background-color: #FF655B;
+  background-image: linear-gradient(to right, #FD297B, #FF5864, #FF655B);
   display: inline-block;
   cursor: pointer;
   text-align: center;
+  border-style: none;
 }
 
 .left-col {
@@ -67,10 +84,14 @@ body {
 
 li {
   list-style: none;
+  border-radius: 8px;
   padding: 10px;
   margin: 5px;
   border: 1px solid #000;
-  transition: all 0.5s
+  transition: all 0.5s;
+  color: #FFF;
+  background-image: linear-gradient(to right, #FD297B, #FF5864, #FF655B);
+  text-align: center;
 }
 
 li:hover {
@@ -93,17 +114,40 @@ ul {
 }
 
 table {
-  font-family: arial, sans-serif;
+  font-family: 'New York'; 
   border-collapse: collapse;
   width: 100%;
 }
 
 td, th {
-  border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
 
+tr:nth-child(odd) {
+  background-color:  #FF5864;
+}
+
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #FF655B;
+}
+
+.img {
+  height: 30%;
+  width: 90%;
+  border: 5px solid #FF655B;
+  border-radius: 15%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-header {
+  background-color:  #FF5864;
+}
+
+.btn-link-foodcat{
+  background-color:  #FF5864;
+  color: white;
+  border-style: none;
 }
