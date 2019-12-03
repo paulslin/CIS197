@@ -1,21 +1,68 @@
 <html>
   <head>
     <title>Profile ingrediants</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles/styles.css"/>
   </head>
   <body>
-    <form method="POST">
-      <H2>Ingrediants</H2>
-      <p>What types of ingrediants do you own?</p>
-      <button type="submit">Update</button>
-      <div class="row">
-          <div class="column" style=" float: left; width: 45%;">
-              <input type="checkbox" name="ingrediants" value="Rice"> Rice<br>
-              <input type="checkbox" name="ingrediants" value="Noodle"> Noodle<br>
-              <input type="checkbox" name="ingrediants" value="Eggs"> Eggs<br>
+      <div class="nav">
+          <div class ="row" style="height: 95%; background-image: linear-gradient(to right, #FD297B, #FF5864, #FF655B)">
+            <img style="height: 118%" src="/static/dinder.jpg" alt="Dinder">
+            <h2 style="font-size: 80; color: #424242; font-family: 
+            Chalet New York 1980; font-style: italic; display: inline; margin-left:1%; ">dinder</h2>
+            <h2 style="font-size: 20; color: #424242; font-family: 
+            Chalet New York 1970; text-align:right;; display: inline; margin-left:.25%">Match.Cook.Chill</h2> 
           </div>
-          <div class="column" style="float: right; width: 45%;" >
-          </div>
-      </div>
-    </form>
+          <div class ="row" style="height: 20%; background-image: linear-gradient(to right, #FD297B, #FF5864, #FF655B)"></div>
+        </div>
+        <div style="margin-left: 2%;">
+            <form method="POST">
+                <H2>Ingrediants</H2>
+                <p>What types of ingrediants do you own?</p>
+                <button type="submit">Update</button>
+                <div class="row">
+                    <div class="select-column">
+                        <H2>Base</H2>
+                        <input type="checkbox" name="ingrediants" value="Beans"> Beans<br>
+                        <input type="checkbox" name="ingrediants" value="Bread"> Bread<br>
+                        <input type="checkbox" name="ingrediants" value="Flour"> Flour<br>
+                        <input type="checkbox" name="ingrediants" value="Noodles"> Noodles<br>
+                        <input type="checkbox" name="ingrediants" value="Rice"> Rice<br>
+                    </div>
+                    <div class="select-column">
+                        <H2>Dairy</H2>
+                        <input type="checkbox" name="ingrediants" value="Cream"> Cream<br>
+                        <input type="checkbox" name="ingrediants" value="Cheese"> Cheese<br>
+                        <input type="checkbox" name="ingrediants" value="Egg"> Egg<br>
+                        <input type="checkbox" name="ingrediants" value="Milk"> Milk<br>
+                    </div>
+                    <div class="select-column">
+                        <H2>Vegetable</H2>
+                        <input type="checkbox" name="ingrediants" value="Bok Choy"> Bok Choy<br>
+                        <input type="checkbox" name="ingrediants" value="Carrot"> Carrot<br>
+                        <input type="checkbox" name="ingrediants" value="Guacamole"> Guacomole<br>
+                        <input type="checkbox" name="ingrediants" value="Lettuce"> Lettuce<br>
+                        <input type="checkbox" name="ingrediants" value="Onion"> Onion<br>
+                        <input type="checkbox" name="ingrediants" value="Peas"> Peas<br>
+                        <input type="checkbox" name="ingrediants" value="Seaweed"> Seaweed<br>
+                        <input type="checkbox" name="ingrediants" value="Tomato"> Tomato<br>
+                    </div>
+                    <div class="select-column">
+                        <H2>Proteins</H2>
+                        <input type="checkbox" name="ingrediants" value="Beef"> Beef<br>
+                        <input type="checkbox" name="ingrediants" value="Chicken"> Chicken<br>
+                        <input type="checkbox" name="ingrediants" value="Fish"> Fish<br>
+                        <input type="checkbox" name="ingrediants" value="Pork"> Pork<br>
+                        <input type="checkbox" name="ingrediants" value="Sausage"> Sausage<br>
+                        <input type="checkbox" name="ingrediants" value="Shrimp"> Shrimp<br>
+                    </div>
+                    <div class="select-column">
+                        <H2>Add-Ons</H2>
+                        <input type="checkbox" name="ingrediants" value="Cinnamon"> Cinnamon<br>
+                        <input type="checkbox" name="ingrediants" value="File"> File<br>
+                        <input type="checkbox" name="ingrediants" value="Sugar"> Sugar<br>
+                    </div>
+                </div>
+              </form>
+        </div>
   </body>
 </html>

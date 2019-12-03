@@ -151,3 +151,8 @@ tr:nth-child(even) {
   color: white;
   border-style: none;
 }
+
+.select-column {
+  float: left;
+  width: 15%;
+}

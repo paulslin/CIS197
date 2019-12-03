@@ -86,10 +86,18 @@ router.post('/food', function(req, res, next) {
               lowFood.push(foodMatching)
             }
             // sort lists of food in descending order based on food score
-            perfFood.sort(function(b, a) {return a[1] - b[1]})
-            highFood.sort(function(b, a) {return a[1] - b[1]})
-            mediumFood.sort(function(b, a) {return a[1] - b[1]})
-            lowFood.sort(function(b, a) {return a[1] - b[1]})
+            perfFood.sort(function(b, a) {
+              return a[1] - b[1]
+            })
+            highFood.sort(function(b, a) {
+              return a[1] - b[1]
+            })
+            mediumFood.sort(function(b, a) {
+              return a[1] - b[1]
+            })
+            lowFood.sort(function(b, a) {
+              return a[1] - b[1]
+            })
           })
           // call callback to update user food lists
           callback()
@@ -106,12 +114,12 @@ router.post('/food', function(req, res, next) {
     User.findOneAndUpdate({ username: username, password: password },
       {perfectFood: perfFood, highFood: highFood, mediumFood: mediumFood, lowFood: lowFood},
       function(err, user_result) {
-      if (!err && user_result != null) {
-        res.redirect('/match/food')
-      } else { 
-        next(new Error('Ingrediants Update Fail'))
-      }
-    })
+        if (!err && user_result != null) {
+          res.redirect('/match/food')
+        } else { 
+          next(new Error('Ingrediants Update Fail'))
+        }
+      })
   }
 
   // call functions to update lists
@@ -121,7 +129,6 @@ router.post('/food', function(req, res, next) {
 // find matching food
 router.post('/people', function(req, res, next) {
   var username = req.session.account.username
-  var password = req.session.account.password
 
   var current_user
   var other_users = []
@@ -133,29 +140,37 @@ router.post('/people', function(req, res, next) {
     // set temp variable for returning later on
     var dish_temp
     // check if food is within user's perfect food list
-    if (user.perfectFood.length !== 0){
+    if (user.perfectFood.length !== 0) {
       // iterate through perfect food list and see if food is within
       user.perfectFood.forEach(function(dish_array) {
         // set dish_temp to array
-        if (dish_array[0] === food) {dish_temp = dish_array}
+        if (dish_array[0] === food) {
+          dish_temp = dish_array
+        }
       })
     }
     // check if food within user's high food list
     if (user.highFood.length !== 0) {
       user.highFood.forEach(function(dish_array) {
-        if (dish_array[0] === food) {dish_temp = dish_array}
+        if (dish_array[0] === food) {
+          dish_temp = dish_array
+        }
       })
     }
     // check if food within user's medium food list
     if (user.mediumFood.length !== 0) {
       user.mediumFood.forEach(function(dish_array) {
-        if (dish_array[0] === food) {dish_temp = dish_array}
+        if (dish_array[0] === food) {
+          dish_temp = dish_array
+        }
       })
     }
     // check if food within user's low food list
     if (user.lowFood.length !== 0) {
       user.lowFood.forEach(function(dish_array) {
-        if (dish_array[0] === food) {dish_temp = dish_array}
+        if (dish_array[0] === food) {
+          dish_temp = dish_array
+        }
       })
     }
     // return array, with username in front
@@ -186,11 +201,11 @@ router.post('/people', function(req, res, next) {
         dish_cuisine = dish_result.dishCuisine
         other_users.forEach(function(other) {
           // set arrays for holding
-          both = []
-          user_only = []
-          other_only = []
-          neither = []
-          either = []
+          var both = []
+          var user_only = []
+          var other_only = []
+          var neither = []
+          var either = []
           
           var generate_distincts = function(userHas, userMissing, otherHas, otherMissing) { 
             // push onto seperate lists
@@ -199,24 +214,24 @@ router.post('/people', function(req, res, next) {
             other_only.push(otherHas.filter(value => !userHas.includes(value)))
             neither.push(userMissing.filter(value => -1 !== otherMissing.indexOf(value)))
 
-            bothList = userHas.concat(otherHas)
+            var bothList = userHas.concat(otherHas)
             either.push(bothList.filter((item, pos) => bothList.indexOf(item) === pos))
           }
   
           // check cuisine and place into corresponding array
-          if (current_user[2] && other["value"][2] ){
+          if (current_user[2] && other['value'][2] ) {
             both.push(true)
             user_only.push(false)
             other_only.push(false)
             neither.push(false)
             either.push(true)
-          } else if (current_user[2] && !other["value"][2]) {
+          } else if (current_user[2] && !other['value'][2]) {
             both.push(false)
             user_only.push(true)
             other_only.push(false)
             neither.push(false)
             either.push(true)
-          } else if (!current_user[2] && other["value"][2]) {
+          } else if (!current_user[2] && other['value'][2]) {
             both.push(false)
             user_only.push(false)
             other_only.push(true)
@@ -230,9 +245,9 @@ router.post('/people', function(req, res, next) {
             either.push(true)
           }
           // generate distinct arrays for skills, applinaces, ingrediants
-          generate_distincts(current_user[3][0], current_user[4][0], other["value"][3][0], other["value"][4][0])
-          generate_distincts(current_user[3][1], current_user[4][1], other["value"][3][1], other["value"][4][1])
-          generate_distincts(current_user[3][2], current_user[4][2], other["value"][3][2], other["value"][4][2])
+          generate_distincts(current_user[3][0], current_user[4][0], other['value'][3][0], other['value'][4][0])
+          generate_distincts(current_user[3][1], current_user[4][1], other['value'][3][1], other['value'][4][1])
+          generate_distincts(current_user[3][2], current_user[4][2], other['value'][3][2], other['value'][4][2])
 
           // Calculate Scores
           var combined_score = 0
@@ -249,31 +264,31 @@ router.post('/people', function(req, res, next) {
               combined_score += Math.ceil(((intersect.length) / (dish_list.length)) * 25)
             }
           }
-          console.log('either', either)
           compareChar(either[1], dish_result.dishSkills)
           compareChar(either[2], dish_result.dishAppliances)
           compareChar(either[3], dish_result.dishIngrediants)
-          var other_final = [other["username"], combined_score, both, user_only, other_only, neither]
+          var other_final = [other['username'], combined_score, both, user_only, other_only, neither]
           other_total.push(other_final)
         })  
 
         // sort based on score value
-        other_total.sort(function(b, a) {return a[1] - b[1]})
-        console.log('in', other_total)
+        other_total.sort(function(b, a) {
+          return a[1] - b[1]
+        })
         callback()
       })
     })
   }
 
-  function nextpage(nextpage){
+  function nextpage() {
     const url = require('url');
-      res.redirect(url.format({
-        pathname:"/match/matched",
-        query: {chosen_dish: req.body.food,
-                cuisine: dish_cuisine,
-                current_user: JSON.stringify(current_user),
-                total_user: JSON.stringify(other_total)}
-        }))
+    res.redirect(url.format( {
+      pathname:'/match/matched',
+      query: {chosen_dish: req.body.food,
+        cuisine: dish_cuisine,
+        current_user: JSON.stringify(current_user),
+        total_user: JSON.stringify(other_total)}
+    }))
   }
 
   // call functions to generate all

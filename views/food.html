@@ -36,9 +36,9 @@
                 var missing_ingrediants = create_lists(arr[4][2])
                 // update HTML section of divider
                 document.getElementById("foodSelection").innerHTML = 
-                "<H1>" + arr[0] + "</H1>" +
+                "<H1>" + arr[0] + " (" + arr[5] + ")" + "</H1>" + 
                 "<H3> Score: " + arr[1] + "%</H3>" + 
-                "<H3> Cuisine: " + arr[6] + "</H3><br>" + 
+                "<H3> Cuisine Match: " + arr[2] + "</H3><br>" + 
                 "<table style='width: 100%'>" + "<tr> <th>CATEGORY</th> <th>FULFILLED</th><th>MISSING</th></tr>" + 
                 "<tr><td> Skills</td>" + "<td >" + have_skills + "</td>" + "<td>" + missing_skills + "</td></tr>" + 
                 "<tr><td> Appliances</td>" + "<td>" + have_appliances + "</td>" + "<td>" + missing_appliances + "</td></tr>" + 
@@ -133,6 +133,7 @@
         </div>
         <div class="column" style=" float: right; margin-right: 2%; width: 38%;">
             <a class="btn" style="margin-top: 2%;" href="/account/profile">Return to Front Page</a>
+            <a class="btn" style="margin-top: 2%;" href="/match/people">Find Recommended Users</a>
           <div id = "foodSelection"></div>
         </div>
       </div>
